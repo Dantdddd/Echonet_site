@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="container">
+  <h1>Entradas Salvas</h1>
+
+  <ul>
+    {% for entry in entries %}
+      <li>
+        <strong>Cidade:</strong> {{ entry.cidade }}<br>
+        <strong>Bairro:</strong> {{ entry.bairro }}<br>
+        <strong>Rua:</strong> {{ entry.rua }}<br><br>
+        <strong>Mensagem:</strong> {{ entry.mensagem }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a class="back-link" href="/forms">Voltar ao Formulário</a>
+  <a class="back-link" href="/buscar">Buscar</a>
+</div>

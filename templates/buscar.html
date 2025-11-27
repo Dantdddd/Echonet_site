@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="container">
+  <h1>Buscar Endereço</h1>
+
+  <form method="POST">
+    <label>Digite cidade, bairro ou rua:</label>
+    <input name="termo" placeholder="ex: Centro, João Pessoa, Rua X">
+
+    <button type="submit">Buscar</button>
+  </form>
+
+  <ul>
+    {% for entry in resultados %}
+      <li>
+        <strong>Cidade:</strong> {{ entry.cidade }}<br>
+        <strong>Bairro:</strong> {{ entry.bairro }}<br>
+        <strong>Rua:</strong> {{ entry.rua }}<br><br>
+        <strong>Mensagem:</strong> {{ entry.mensagem }}
+      </li>
+    {% endfor %}
+
+    {% if resultados|length == 0 and request.method == 'POST' %}
+      <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+  </ul>
+
+  <a class="back-link" href="/forms">Formulário</a>
+  <a class="back-link" href="/database">Banco de Dados</a>
+</div>
